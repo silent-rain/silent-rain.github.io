@@ -97,7 +97,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","display":"post","offset":0,"b2t":true,"scrollpercent":true,"onmobile":false,"dimmer":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="默雨">
 <meta property="og:description" content="一只学习python的小菜鸟，欢迎分享知识。            QQ：2367221387        Email: 2367221387@qq.com">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T05:52:32.448Z">
+<meta property="og:updated_time" content="2019-03-02T07:50:44.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于">
 <meta name="twitter:description" content="一只学习python的小菜鸟，欢迎分享知识。            QQ：2367221387        Email: 2367221387@qq.com">
@@ -347,7 +347,7 @@
         
         
           
-          <li class="menu-item menu-item-comment">
+          <li class="menu-item menu-item-guestbook">
 
     
     
@@ -357,7 +357,7 @@
 
     
 
-    <a href="/menu/comment/" rel="section"><i class="menu-item-icon fa fa-fw fa-comment"></i> <br>留言</a>
+    <a href="/menu/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comment"></i> <br>留言</a>
 
   </li>
         
@@ -503,6 +503,7 @@
 
 <div class="post-meta">
   
+  <!--头部菜单路径-->
   
 
 
@@ -531,6 +532,7 @@
       
     
   </ul>
+
 
 
 </div>
@@ -553,7 +555,9 @@
       
       
     </div>
-    
+
+    <!--底部菜单路径-->
+    <!--
 
 
   
@@ -582,7 +586,7 @@
     
   </ul>
 
-
+-->
     
     
     
@@ -591,10 +595,6 @@
 
           </div>
           
-
-  
-
-
 
         </div>
         
@@ -632,7 +632,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -943,9 +943,36 @@
 
   
   
-
-
   
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'YDC0R75i6avxRObahlQHoywo-gzGzoHsz',
+    appKey: 'ND1QDqXK0z0PuvK4SgVpb50J',
+    placeholder: '走过路过，不留下点什么吗？',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
 
 
   

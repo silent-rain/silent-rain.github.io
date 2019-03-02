@@ -97,7 +97,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","display":"post","offset":0,"b2t":true,"scrollpercent":true,"onmobile":false,"dimmer":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -347,7 +347,7 @@
         
         
           
-          <li class="menu-item menu-item-comment">
+          <li class="menu-item menu-item-guestbook">
 
     
     
@@ -357,7 +357,7 @@
 
     
 
-    <a href="/menu/comment/" rel="section"><i class="menu-item-icon fa fa-fw fa-comment"></i> <br>留言</a>
+    <a href="/menu/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comment"></i> <br>留言</a>
 
   </li>
         
@@ -525,6 +525,19 @@
 
           
             
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/02/28/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/28/hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -697,22 +710,6 @@
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/02/hello-world11/" rel="prev" title="hello-world11">
-                hello-world11 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
 
       
       
@@ -729,6 +726,10 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
 
   
 
@@ -779,7 +780,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1107,6 +1108,35 @@
 
   
   
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'YDC0R75i6avxRObahlQHoywo-gzGzoHsz',
+    appKey: 'ND1QDqXK0z0PuvK4SgVpb50J',
+    placeholder: '走过路过，不留下点什么吗？',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
 
 
   

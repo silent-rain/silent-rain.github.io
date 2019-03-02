@@ -97,7 +97,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '7.0.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","display":"post","offset":0,"b2t":true,"scrollpercent":true,"onmobile":false,"dimmer":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="默雨">
 <meta property="og:description" content="AV.initialize(&quot;YDC0R75i6avxRObahlQHoywo-gzGzoHsz&quot;, &quot;ND1QDqXK0z0PuvK4SgVpb50J&quot;);      var time = 0     var title = &quot;&quot;     var url = &quot;&quot;     var query = new AV.Query(&apos;Counter&apos;);     query.notEqualTo(&apos;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T07:08:59.533Z">
+<meta property="og:updated_time" content="2019-03-02T07:50:44.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="热度">
 <meta name="twitter:description" content="AV.initialize(&quot;YDC0R75i6avxRObahlQHoywo-gzGzoHsz&quot;, &quot;ND1QDqXK0z0PuvK4SgVpb50J&quot;);      var time = 0     var title = &quot;&quot;     var url = &quot;&quot;     var query = new AV.Query(&apos;Counter&apos;);     query.notEqualTo(&apos;">
@@ -347,7 +347,7 @@
         
         
           
-          <li class="menu-item menu-item-comment">
+          <li class="menu-item menu-item-guestbook">
 
     
     
@@ -357,7 +357,7 @@
 
     
 
-    <a href="/menu/comment/" rel="section"><i class="menu-item-icon fa fa-fw fa-comment"></i> <br>留言</a>
+    <a href="/menu/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comment"></i> <br>留言</a>
 
   </li>
         
@@ -503,6 +503,7 @@
 
 <div class="post-meta">
   
+  <!--头部菜单路径-->
   
 
 
@@ -531,6 +532,7 @@
       
     
   </ul>
+
 
 
 </div>
@@ -556,12 +558,12 @@
     query.descending('time');
     query.limit(1000);
     query.find().then(function (todo) {
-        console.log(todo);
         for (var i = 0; i < 1000; i++) {
             var result = todo[i].attributes;
             time = result.time;
             title = result.title;
             url = result.url;
+            console.log("erro111r" + result);
             var content = "<a href='" + "https://silent-rain.github.io" + url + "'>" + title + "</a>" + "<br />" + "<font color='#555'>" + "阅读次数：" + time + "</font>" + "<br /><br />";
             document.getElementById("top").innerHTML += content
         }
@@ -576,7 +578,9 @@
       
       
     </div>
-    
+
+    <!--底部菜单路径-->
+    <!--
 
 
   
@@ -605,7 +609,7 @@
     
   </ul>
 
-
+-->
     
     
     
@@ -614,10 +618,6 @@
 
           </div>
           
-
-  
-
-
 
         </div>
         
@@ -655,7 +655,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">1</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -966,9 +966,36 @@
 
   
   
-
-
   
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'YDC0R75i6avxRObahlQHoywo-gzGzoHsz',
+    appKey: 'ND1QDqXK0z0PuvK4SgVpb50J',
+    placeholder: '走过路过，不留下点什么吗？',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+</script>
+
+
+
 
 
   
