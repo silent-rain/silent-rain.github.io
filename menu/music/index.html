@@ -41,6 +41,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -287,7 +291,7 @@
 
     
 
-    <a href="/menu/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
         
@@ -544,10 +548,10 @@
           <div style="font-size:40px;align:center;height:-40px;text-align:center;"><b>我的歌单</b></div>
 
 <div><br>    
-        <div id="aplayer-hKmbYyRk" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
+        <div id="aplayer-bidLTgBU" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
 			  <script>
 				  var options = {"narrow":false,"autoplay":true,"showlrc":3,"mode":"random","music":[{"title":"遇见","author":"孙燕姿","url":"http://m10.music.126.net/20190301005758/f058da2688f7b2aabfc801f160a4a436/ymusic/7c93/5d46/9f82/d9a801a4b57d25e6dd58171a33aaf961.mp3","pic":"http://p1.music.126.net/ZpcOx5dbNTRK94vSIM20PQ==/768558627827568.jpg","lrc":""},{"title":"爱你","author":"陈芳语","url":"http://music.163.com/song/media/outer/url?id=22852057.mp3","pic":"http://p1.music.126.net/0Xvz_4oS4YLCvWtQcXU05Q==/17867063951755098.jpg","lrc":""},{"title":"良人","author":"邓福如","url":"http://music.163.com/song/media/outer/url?id=26494135.mp3","pic":"http://p2.music.126.net/fSny5AMqitFMBs01CJgryg==/2321069046296344.jpg","lrc":""},{"title":"小幸运","author":"田馥甄","url":"http://music.163.com/song/media/outer/url?id=33206214.mp3","pic":"http://p1.music.126.net/bwBsDMYJcFetIc-q_oWjAw==/109951163520335473.jpg","lrc":""}]};
-				  options.element = document.getElementById("aplayer-hKmbYyRk");
+				  options.element = document.getElementById("aplayer-bidLTgBU");
 				  var ap = new APlayer(options);
 			    window.aplayers || (window.aplayers = []);
 				  window.aplayers.push(ap);
@@ -635,7 +639,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/menu/archives/">
+                  <a href="/archives/">
                 
                     <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
@@ -1291,6 +1295,26 @@
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
 
   
 
@@ -1303,6 +1327,87 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      
+        background-color: #eee;
+        background-image: linear-gradient(#fcfcfc, #eee);
+        border: 1px solid #d5d5d5;
+        border-radius: 3px;
+      
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      
+        right: 4px;
+        top: 8px;
+      
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1;
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
 
 
   <!-- 页面点击小红心 -->

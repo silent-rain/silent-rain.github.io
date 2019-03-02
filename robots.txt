@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /2019/
+Allow: /assets/
+Allow: /archives/
+Allow: /images/
+Allow: /live2dw/
+Allow: /menu/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: https://silent-rain.github.io/sitemap.xml
+Sitemap: https://silent-rain.github.io/baidusitemap.xml
