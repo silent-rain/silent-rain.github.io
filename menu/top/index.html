@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="默雨">
 <meta property="og:description" content="AV.initialize(&quot;YDC0R75i6avxRObahlQHoywo-gzGzoHsz&quot;, &quot;ND1QDqXK0z0PuvK4SgVpb50J&quot;);      var time = 0     var title = &quot;&quot;     var url = &quot;&quot;     var query = new AV.Query(&apos;Counter&apos;);     query.notEqualTo(&apos;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T07:50:44.698Z">
+<meta property="og:updated_time" content="2019-03-02T08:38:44.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="热度">
 <meta name="twitter:description" content="AV.initialize(&quot;YDC0R75i6avxRObahlQHoywo-gzGzoHsz&quot;, &quot;ND1QDqXK0z0PuvK4SgVpb50J&quot;);      var time = 0     var title = &quot;&quot;     var url = &quot;&quot;     var query = new AV.Query(&apos;Counter&apos;);     query.notEqualTo(&apos;">
@@ -558,6 +558,9 @@
     query.descending('time');
     query.limit(1000);
     query.find().then(function (todo) {
+        if(todo.length == 0){ 
+            return false;
+        }
         for (var i = 0; i < 1000; i++) {
             var result = todo[i].attributes;
             time = result.time;
