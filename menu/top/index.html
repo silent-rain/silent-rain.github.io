@@ -126,7 +126,7 @@
 <meta property="og:site_name" content="默雨">
 <meta property="og:description" content="AV.initialize(&quot;YDC0R75i6avxRObahlQHoywo-gzGzoHsz&quot;, &quot;ND1QDqXK0z0PuvK4SgVpb50J&quot;);      var time = 0     var title = &quot;&quot;     var url = &quot;&quot;     var query = new AV.Query(&apos;Counter&apos;);     query.notEqualTo(&apos;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T08:38:44.767Z">
+<meta property="og:updated_time" content="2019-03-02T09:02:43.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="热度">
 <meta name="twitter:description" content="AV.initialize(&quot;YDC0R75i6avxRObahlQHoywo-gzGzoHsz&quot;, &quot;ND1QDqXK0z0PuvK4SgVpb50J&quot;);      var time = 0     var title = &quot;&quot;     var url = &quot;&quot;     var query = new AV.Query(&apos;Counter&apos;);     query.notEqualTo(&apos;">
@@ -558,17 +558,15 @@
     query.descending('time');
     query.limit(1000);
     query.find().then(function (todo) {
-        if(todo.length == 0){ 
-            return false;
-        }
         for (var i = 0; i < 1000; i++) {
             var result = todo[i].attributes;
             time = result.time;
             title = result.title;
             url = result.url;
-            console.log("erro111r" + result);
-            var content = "<a href='" + "https://silent-rain.github.io" + url + "'>" + title + "</a>" + "<br />" + "<font color='#555'>" + "阅读次数：" + time + "</font>" + "<br /><br />";
-            document.getElementById("top").innerHTML += content
+            // var content = "<a href='" + "https://silent-rain.github.io" + url + "'>" + title + "</a>" + "<br />" + "<font color='#555'>" + "阅读次数：" + time + "</font>" + "<br /><br />";
+            // var content="<a href='"+"https://silent-rain.github.io"+url+"'>"+title+"</a>"+"<br>"+"<font color='#fff'>"+"阅读次数："+time+"</font>"+"<br><br>";
+            var content="<p>"+"<font color='#1C1C1C'>"+"【阅读次数:"+time+ "次】"+"</font>"+"<a href='"+"https://silent-rain.github.io"+url+"'>"+title+"</a>"+"</p>";
+            document.getElementById("top").innerHTML+=content
         }
     }, function (error) {
         console.log("error");
@@ -658,7 +656,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -777,7 +775,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">0k</span>
+    <span title="站点总字数">7k</span>
   
 
   
@@ -788,7 +786,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
   
 </div>
 
